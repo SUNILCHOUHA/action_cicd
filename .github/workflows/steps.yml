@@ -17,3 +17,5 @@ jobs:
       - name: step 3  
         run: uname -a
 
+      - name: failed step
+        run: hello this is failed 
