@@ -1,5 +1,7 @@
 name: phase-2-triggers
-on: workflow_dispatch
+on:
+#  push:
+  workflow_dispatch:
 
 jobs:
   build:
