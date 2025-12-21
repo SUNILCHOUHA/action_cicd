@@ -1,48 +1,37 @@
-name: phase-2-steps-practice
+# name: phase-2-steps-practice
 
-on:
-  push:
-  workflow_dispatch:
-
-jobs:
-  step_test:
-    runs-on: ubuntu-latest
-    steps:  
-      - name: step-1 start
-        run: echo "started stage"
-
-      - name: step-2 build 
-        run: echo "Build stage"
-      
-      - name: complete 
-        run: echo "successfully complete"
-
-
-# name: phase-2-triggers
 # on:
-#   workflow_dispatch: {}
+#   push:
+#   workflow_dispatch:
 
 # jobs:
-#   build:
+#   step_test:
 #     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "This is a build stage!"
+#     steps:  
+#       - name: step-1 start
+#         run: echo "started stage"
 
-#   test:
-#     needs: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "This is a test stage!"
+#       - name: step-2 build 
+#         run: echo "Build stage"
+      
+#       - name: complete 
+#         run: echo "successfully complete"
+
+
+name: phase-2-triggers
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is a build stage!"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is a test stage!"
   
 
-
-# name: my-first workflow
-
-# on: push
-
-# jobs: 
-#   first-job:
-
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "Hello GitHub Actions!"
