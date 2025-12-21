@@ -1,0 +1,15 @@
+name: phase-2-triggers
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is a build stage!"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is a test stage!"
