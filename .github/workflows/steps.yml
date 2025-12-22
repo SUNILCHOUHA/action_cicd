@@ -31,8 +31,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-      - name: Checking repository
-        uses: actions/checkout@v4
+    #   - name: Checking repository
+    #     uses: actions/checkout@v4
 
       - name: print current directory
         run: pwd
