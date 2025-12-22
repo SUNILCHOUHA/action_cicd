@@ -38,4 +38,4 @@ jobs:
         run: pwd
 
       - name: list files
-        run: ls -s
+        run: ls -a
