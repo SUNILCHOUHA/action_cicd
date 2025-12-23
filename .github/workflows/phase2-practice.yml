@@ -16,4 +16,4 @@ jobs:
         run: ls -la
 
       - name: checkout .github 
-        run: ls .github 
+        run: ls .github/workflows 
