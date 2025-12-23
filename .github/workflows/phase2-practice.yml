@@ -9,8 +9,8 @@ jobs:
       - name: Checking befor downloading repo 
         run: ls -la
 
-      - name: checkout repo
-        uses: actions/checkout@v4
+      # - name: checkout repo
+      #   uses: actions/checkout@v4
         
       - name: Checking after downloading repo 
         run: ls -la
