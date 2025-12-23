@@ -3,15 +3,15 @@ name: phase-2-practice
 on: push
 
 jobs:
-  build:
+  phase2:
     runs-on: ubuntu-latest
-    steps: 
-      - name: checkout repository
-        uses: actions/checkout@v4
-      
-  test: 
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: testing
+    steps:
+      - name: Checking befor downloading repo 
         run: ls -la
+
+      - name: checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Checking after downloading repo 
+        run: ls -la
+        
