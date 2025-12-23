@@ -16,6 +16,5 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          - name: phase-2-result 
-            path: result.txt
-            
+          name: phase-2-result 
+          path: result.txt
