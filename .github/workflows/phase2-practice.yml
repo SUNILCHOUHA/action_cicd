@@ -14,4 +14,6 @@ jobs:
         
       - name: Checking after downloading repo 
         run: ls -la
-        
+
+      - name: .github list 
+        run: cd .github | ls -la
