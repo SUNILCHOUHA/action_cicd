@@ -39,12 +39,14 @@ jobs:
         run: ls -la
   
   artifact: 
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: create artifact
         run: echo "This is my first artifact file in github actions tutorial" > result.txt
 
   test: 
+    needs: artifact
     runs-on: ubuntu-latest
     steps: 
       - name: upload artifact
