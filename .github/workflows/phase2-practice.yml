@@ -12,11 +12,11 @@ jobs:
       # - name: checkout repo
       #   uses: actions/checkout@v4
         
-      - name: Checking after downloading repo 
-        run: ls -la
+      # - name: Checking after downloading repo 
+      #   run: ls -la
 
-      - name: checkout .github 
-        run: ls .github/workflows 
+      # - name: checkout .github 
+      #   run: ls .github/workflows 
 
       - name: create file 
         run: echo "uploading artifact" > result.txt
