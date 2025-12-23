@@ -2,27 +2,55 @@ name: phase-2-practice
 
 on: push
 
+# jobs:
+#   phase2:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checking befor downloading repo 
+#         run: ls -la
+
+#       # - name: checkout repo
+#       #   uses: actions/checkout@v4
+        
+#       # - name: Checking after downloading repo 
+#       #   run: ls -la
+
+#       # - name: checkout .github 
+#       #   run: ls .github/workflows 
+
+#       - name: create file 
+#         run: echo "uploading artifact" > result.txt
+
+#       - name: upload artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: result artifact
+#           path: result.txt
+
+
 jobs:
-  phase2:
+  build: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v4
+    
+      - name: verify files
+        run: ls -la
+  
+  artifact: 
     runs-on: ubuntu-latest
     steps:
-      - name: Checking befor downloading repo 
-        run: ls -la
+      - name: create artifact
+        run: echo "This is my first artifact file in github actions tutorial" > result.txt
 
-      # - name: checkout repo
-      #   uses: actions/checkout@v4
-        
-      # - name: Checking after downloading repo 
-      #   run: ls -la
-
-      # - name: checkout .github 
-      #   run: ls .github/workflows 
-
-      - name: create file 
-        run: echo "uploading artifact" > result.txt
-
+  test: 
+    runs-on: ubuntu-latest
+    steps: 
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: result artifact
+          name: artifact result
           path: result.txt
+
+
