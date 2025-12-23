@@ -17,3 +17,9 @@ jobs:
 
       - name: checkout .github 
         run: ls .github/workflows 
+
+      - name: create file 
+        run: echo "uploading artifact" > result.txt
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
