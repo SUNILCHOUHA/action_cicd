@@ -1,6 +1,6 @@
-name: phase-2-practice
+# name: phase-2-practice
 
-on: push
+# on: push
 
 # jobs:
 #   phase2:
