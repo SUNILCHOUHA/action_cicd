@@ -28,34 +28,55 @@ on: push
 #           path: result.txt
 
 
-jobs:
-  build: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: checkout repo
-        uses: actions/checkout@v4
+# jobs:
+#   build: 
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - name: checkout repo
+#         uses: actions/checkout@v4
     
-      - name: verify files
-        run: ls -la
+#       - name: verify files
+#         run: ls -la
   
-  artifact: 
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: create artifact
-        run: echo "This is my first artifact file in github actions tutorial" > result.txt
+#   artifact: 
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: create artifact
+#         run: echo "This is my first artifact file in github actions tutorial" > result.txt
       
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact result
-          path: result.txt
+#       - name: upload artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: artifact result
+#           path: result.txt
 
 
 
-  test: 
-    needs: artifact
+#   test: 
+#     needs: artifact
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - name: go to .github/workflows
+#         run: ls .github/workflows
+
+
+
+name: phase2-matrix-build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
     runs-on: ubuntu-latest
-    steps: 
-      - name: go to .github/workflows
-        run: ls .github/workflows
+
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        run: echo "Running on Node ${{ matrix.node-version }}"
