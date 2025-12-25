@@ -7,9 +7,33 @@ on:
 
 
 jobs:
-  prod-test:
+  dev-deploy:
+    environment: Dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Dev stage
+        run: |
+          echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
+          echo "Dev stage successfull"
+
+  stg-deploy:
+    needs: Dev-deploy
+    environment: Stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Stg stage
+        run: |
+          echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
+          echo "Stg stage successfull"
+
+  prod-deploy:
+    needs: Stg-deploy
     environment: Prod
     runs-on: ubuntu-latest
     steps:
-      - name: production test 
-        run: echo "Testing successfully"
+      - name: Use Prod stage
+        run: |
+          echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
+          echo "Prod stage successfull"
+
+
