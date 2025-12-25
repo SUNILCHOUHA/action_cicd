@@ -14,7 +14,6 @@ jobs:
       - name: Use Dev stage
         run: |
           echo "Dev stage successfull"
-          exit 0
 
   stg-deploy:
     needs: Dev-deploy
@@ -24,7 +23,7 @@ jobs:
       - name: Use Stg stage
         run: |
           echo "Stg stage successfull"
-          exit 0
+  
           
   prod-deploy:
     needs: Stg-deploy
