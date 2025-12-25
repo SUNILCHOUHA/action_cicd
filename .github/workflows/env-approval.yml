@@ -1,0 +1,14 @@
+name: deploy with approval
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  prod-test:
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: production test 
+        run: echo "Testing successfully"
