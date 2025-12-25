@@ -24,7 +24,6 @@ jobs:
       - name: Use Stg stage
         run: |
           echo "Stg stage successfull"
-  
           
   prod-deploy:
     needs: Stg-deploy
