@@ -3,8 +3,7 @@ name: deploy with approval
 on:
   push:
     branches:
-      - main 
-
+      - main
 
 jobs:
   dev-deploy:
@@ -13,27 +12,25 @@ jobs:
     steps:
       - name: Use Dev stage
         run: |
-          echo "Dev stage successfull"
+          echo "Dev stage successful"
 
   stg-deploy:
-    needs: Dev-deploy
+    needs: dev-deploy
     environment: Stg
     runs-on: ubuntu-latest
     steps:
       - name: Use Stg stage
         run: |
-          echo "Stg stage successfull"
-          
+          echo "Stg stage successful"
+
   prod-deploy:
-    needs: Stg-deploy
+    needs: stg-deploy
     if: |
-      success () && 
+      success() &&
       github.ref == 'refs/heads/main'
     environment: Prod
     runs-on: ubuntu-latest
     steps:
       - name: Use Prod stage
         run: |
-          echo "Prod stage successfull"
-
-
+          echo "Prod stage successful"
