@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: Use Dev stage
         run: |
-          echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
           echo "Dev stage successfull"
+          exit 0
 
   stg-deploy:
     needs: Dev-deploy
@@ -23,17 +23,19 @@ jobs:
     steps:
       - name: Use Stg stage
         run: |
-          echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
           echo "Stg stage successfull"
+          exit 0
 
   prod-deploy:
     needs: Stg-deploy
+    if: |
+      success () && 
+      github.ref == 'refs/heads/main'
     environment: Prod
     runs-on: ubuntu-latest
     steps:
       - name: Use Prod stage
         run: |
-          echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
           echo "Prod stage successfull"
 
 
