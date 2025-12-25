@@ -26,7 +26,7 @@ jobs:
           echo "DB_PASSWORD : ${{secrets.DB_PASSWORD}}"
           echo "Stg stage successfull"
 
-  dev-deploy:
+  prod-deploy:
     needs: Stg-deploy
     environment: Prod
     runs-on: ubuntu-latest
