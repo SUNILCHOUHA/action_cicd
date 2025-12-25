@@ -1,9 +1,39 @@
-name:
+name: deploy with approval
 
-on: push
+on:
+  push:
+    branches:
+      - main 
+
 
 jobs:
-  runs-on: ubuntu-latest
-  steps: 
-    - name: semple workflow file
-      run: echo "successfully complete"
+  dev-deploy:
+    environment: Dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Dev stage
+        run: |
+          echo "Dev stage successfull"
+
+  stg-deploy:
+    needs: Dev-deploy
+    environment: Stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Stg stage
+        run: |
+          echo "Stg stage successfull"
+          
+  prod-deploy:
+    needs: Stg-deploy
+    if: |
+      success () && 
+      github.ref == 'refs/heads/main'
+    environment: Prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Prod stage
+        run: |
+          echo "Prod successfull"
+
+
