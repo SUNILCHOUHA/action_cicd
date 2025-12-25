@@ -1,0 +1,9 @@
+name:
+
+on: push
+
+jobs:
+  runs-on: ubuntu-latest
+  steps: 
+    - name: semple workflow file
+      run: echo "successfully complete"
