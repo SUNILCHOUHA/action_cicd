@@ -7,7 +7,7 @@ on:
 
 jobs:
   prod-test:
-    environment: prod
+    environment: Prod
     runs-on: ubuntu-latest
     steps:
       - name: production test 
