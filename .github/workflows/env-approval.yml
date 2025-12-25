@@ -2,8 +2,8 @@ name: deploy with approval
 
 on:
   push:
-    branches:
-      - main
+    - main 
+
 
 jobs:
   prod-test:
