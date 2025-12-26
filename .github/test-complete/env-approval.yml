@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Use Dev stage
         run: |
+          echo "This is first step"
           echo "Dev stage successfull"
 
   stg-deploy:
